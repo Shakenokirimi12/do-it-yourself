@@ -1,0 +1,46 @@
+{
+  "title": "MacのsudoにTouchIDを割り当てたら便利だったよ",
+  "articleUrl": "https://zenn.dev/shakenokirimi12/articles/d7ea92dcf80dd9",
+  "forceArticleOnWeb": false,
+  "authorization": {
+    "required": true,
+    "description": "このコマンドを実行するためには、管理者権限が必要です。"
+  },
+  "accreditation": {
+    "id": "test",
+    "description": "認証されています。"
+  },
+  "requirements": [
+    {
+      "systemType": "Darwin",
+      "systemVersion": "11",
+      "AllowedCPUs": { "x86_64": true, "arm64": false }
+    }
+  ],
+  "command": [
+    {
+      "command": "alias vim='nano' && alias vi='nano' && alias emacs='nano'",
+      "description": "下準備",
+      "requirement": {
+        "systemType": "Darwin",
+        "systemVersion": "11"
+      }
+    },
+    {
+      "command": "sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local",
+      "description": "テンプレートをコピーします。",
+      "requirement": {
+        "systemType": "Darwin",
+        "systemVersion": "11"
+      }
+    },
+    {
+      "command": "sudo nano /etc/pam.d/sudo_local",
+      "description": "ほんで/etc/pam.d/sudo_localを以下のように変更してください。\n元\n#auth sufficient pam_tid.so\n後\nauth sufficient pam_tid.so",
+      "requirement": {
+        "systemType": "Darwin",
+        "systemVersion": "11"
+      }
+    }
+  ]
+}

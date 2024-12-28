@@ -1,0 +1,96 @@
+{
+  "title": "記述例",
+  "articleUrl": "https://zenn.dev/shakenokirimi12/articles/d7ea92dcf80dd9",
+  "forceArticleOnWeb": false,
+  "authorization": {
+    "required": true,
+    "description": "このコマンドを実行するためには、管理者権限が必要です。"
+  },
+  "accreditation": {
+    "id": "test",
+    "description": "認証されています。"
+  },
+  "requirements": [
+    {
+      "systemType": "Windows",
+      "systemVersion": "10",
+      "requireGraphicBoard": true,
+      "AllowedCPUs": { "x86_64": true, "arm64": false }
+    },
+    {
+      "systemType": "Darwin",
+      "systemVersion": "11",
+      "AllowedCPUs": { "x86_64": true, "arm64": false }
+    },
+    {
+      "systemType": "Linux",
+      "systemVersion": "20.04",
+      "AllowedCPUs": { "x86_64": true, "arm64": false },
+      "AllowedDistributions": ["Ubuntu", "Debian"]
+    }
+  ],
+  "command": [
+    {
+      "command": "echo 'Hello, World!'",
+      "description": "Hello, World! を表示します"
+    },
+    {
+      "command": "echo 'Goodbye, World!'",
+      "description": "Goodbye, World! を表示します"
+    },
+    {
+      "command": "/bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'",
+      "description": "Homebrewをインストールします",
+      "requirement": {
+        "systemType": "Darwin",
+        "systemVersion": "11"
+      }
+    },
+    {
+      "command": "sudo apt update && sudo apt upgrade -y",
+      "description": "パッケージをアップデートします",
+      "requirement": {
+        "systemType": "Linux",
+        "systemVersion": "20.04^",
+        "AllowedDistributions": ["Ubuntu", "Debian"]
+      }
+    },
+    {
+      "command": "brew install git",
+      "description": "Gitをインストールします",
+      "requirement": {
+        "systemType": "Darwin",
+        "systemVersion": "11"
+      }
+    },
+    {
+      "command": "sudo apt install git",
+      "description": "Gitをインストールします",
+      "requirement": {
+        "systemType": "Linux",
+        "systemVersion": "20.04",
+        "AllowedDistributions": ["Ubuntu", "Debian"]
+      }
+    },
+    {
+      "commands": [
+        {
+          "command": "ls",
+          "requirement": {
+            "systemType": "Linux",
+            "systemVersion": "20.04",
+            "AllowedDistributions": ["Ubuntu", "Debian"]
+          }
+        },
+        {
+          "command": "dir",
+          "requirement": {
+            "systemType": "Windows",
+            "systemVersion": "11"
+          }
+        }
+      ],
+      "description": "現在のディレクトリの中身を表示します。"
+    }
+  ]
+}
